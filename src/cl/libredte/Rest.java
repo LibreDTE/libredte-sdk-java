@@ -170,8 +170,16 @@ public class Rest {
             }
         }
         catch (Exception e) {
-            this.status = 500;
-            this.result = "\"" + e + "\"";
+            InputStream error = conn.getErrorStream();
+            try {
+                int code = error.read();
+                while (code != -1) {
+                    this.result += (char)code;
+                    code = error.read();
+                }
+                error.close();
+            } catch (IOException ignored) {
+            }
         }
     }
 
