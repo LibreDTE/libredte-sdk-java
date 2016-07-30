@@ -34,8 +34,13 @@ public class LibreDTE {
         this(hash, "https://libredte.cl");
     }
 
+    public Rest get(String api) {
+        this.Rest.get("/api"+api);
+        return this.Rest;
+    }
+
     public Rest post(String api, JSONObject data) {
-        this.Rest.consume("/api"+api, data.toString());
+        this.Rest.post("/api"+api, data.toString());
         return this.Rest;
     }
 

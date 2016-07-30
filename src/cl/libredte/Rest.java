@@ -32,7 +32,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * Clase para consumir servicios web basados en REST
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2016-06-05
+ * @version 2016-07-30
  */
 public class Rest {
 
@@ -113,13 +113,34 @@ public class Rest {
     }
 
     /**
+     * Método para consumir vía GET un recurso
+     * @param resource Recurso que se desea consumir en el servicio web
+     * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
+     * @version 2016-07-30
+     */
+    public void get(String resource) {
+        this.consume(resource, null, "GET");
+    }
+
+    /**
+     * Método para consumir vía POST un recurso
+     * @param resource Recurso que se desea consumir en el servicio web
+     * @param data String JSON con los datos que se enviarán al servicio web
+     * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
+     * @version 2016-07-30
+     */
+    public void post(String resource, String data) {
+        this.consume(resource, data, "POST");
+    }
+
+    /**
      * Consumir recurso en el servicio web
      * @param resource Recurso que se desea consumir en el servicio web
      * @param data String JSON con los datos que se enviarán al servicio web
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2016-02-20
      */
-    public void consume(String resource, String data) {
+    private void consume(String resource, String data, String metodo) {
         this.result = "";
         URL url = null;
         HttpURLConnection conn = null;
@@ -127,7 +148,7 @@ public class Rest {
             // crear conexión
             url = new URL(this.url+resource);
             conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
+            conn.setRequestMethod(metodo);
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
             if (this.auth!=null)
@@ -136,11 +157,13 @@ public class Rest {
             conn.setDoInput(true);
             conn.setDoOutput(true);
             // enviar datos
-            conn.setRequestProperty("Content-Length", "" + Integer.toString(data.getBytes().length));
-            OutputStream os = conn.getOutputStream();
-            os.write(data.getBytes());
-            os.flush();
-            os.close();
+            if (data != null) {
+                conn.setRequestProperty("Content-Length", "" + Integer.toString(data.getBytes().length));
+                OutputStream os = conn.getOutputStream();
+                os.write(data.getBytes());
+                os.flush();
+                os.close();
+            }
             // obtener respuesta
             this.status = conn.getResponseCode();
             InputStream is = conn.getInputStream();
