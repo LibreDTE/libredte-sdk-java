@@ -50,7 +50,7 @@ public class Ejemplo_003_dte_emitido_timbre {
             System.exit(1);
         }
 
-        // guardar PDF en el disco
+        // guardar PNG en el disco
         try {
             Files.write(Paths.get("ejemplos/Ejemplo_003_dte_emitido_timbre.png"), ted.getBytes());
         } catch (IOException e) {
