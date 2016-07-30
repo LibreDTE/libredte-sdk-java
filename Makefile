@@ -2,6 +2,8 @@ JC = javac
 EJEMPLOS_CLASSES = classes
 JFLAGS = -g
 EJEMPLO = Ejemplo_001_generar_dte
+# EJEMPLO = Ejemplo_002_actualizar_estado
+# EJEMPLO = Ejemplo_003_dte_emitido_timbre
 
 all:
 	mkdir -p build
@@ -15,4 +17,4 @@ test: all
 	java -cp $(EJEMPLOS_CLASSES):lib/json-simple-1.1.1.jar:lib/libredte.jar $(EJEMPLO)
 
 clean:
-	rm -rf $(EJEMPLOS_CLASSES) build lib/libredte.jar ejemplos/*.pdf
+	rm -rf $(EJEMPLOS_CLASSES) build lib/libredte.jar ejemplos/*.pdf ejemplos/*.png
