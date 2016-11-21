@@ -30,7 +30,7 @@ import java.io.*;
  *  - Generar DTE real a partir del temporal
  *  - Obtener PDF a partir del DTE real
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2016-06-05
+ * @version 2016-11-20
  */
 public class Ejemplo_001_generar_dte {
 
@@ -87,9 +87,7 @@ public class Ejemplo_001_generar_dte {
         }
 
         // obtener el PDF del DTE
-        JSONObject generar_pdf_request = new JSONObject();
-        generar_pdf_request.put("xml", generar.getJSON().get("xml"));
-        Rest generar_pdf = LibreDTE.post("/dte/documentos/generar_pdf", generar_pdf_request);
+        Rest generar_pdf = LibreDTE.get("/dte/dte_emitidos/pdf/"+generar.getJSON().get("dte")+"/"+generar.getJSON().get("folio")+"/"+generar.getJSON().get("emisor"));
         if (generar_pdf.getStatus()!=200) {
             System.out.println("Error al generar PDF del DTE: "+generar_pdf.getResult());
             System.exit(1);
