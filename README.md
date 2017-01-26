@@ -1,6 +1,8 @@
 SDK de LibreDTE para Java
 =========================
 
+[![Build Status](https://travis-ci.org/LibreDTE/libredte-sdk-java.svg?branch=master)](https://travis-ci.org/LibreDTE/libredte-sdk-java)
+
 SDK para realizar la integración con los servicios web de LibreDTE desde Java.
 
 Términos y condiciones de uso
