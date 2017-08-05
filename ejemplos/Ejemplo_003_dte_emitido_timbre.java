@@ -45,7 +45,7 @@ public class Ejemplo_003_dte_emitido_timbre {
         // crear cliente
         LibreDTE LibreDTE = new LibreDTE(hash, url);
 
-        // crear DTE temporal
+        // obtener el timbre
         Rest ted = LibreDTE.get("/dte/dte_emitidos/ted/"+dte+"/"+folio+"/"+rut);
         if (ted.getStatus()!=200) {
             System.out.println("Error al obtener el TED del DTE: "+ted.getResult());
