@@ -2,8 +2,10 @@ JC = javac
 EJEMPLOS_CLASSES = classes
 JFLAGS = -g
 EJEMPLO = Ejemplo_001_generar_dte
-# EJEMPLO = Ejemplo_002_actualizar_estado
-# EJEMPLO = Ejemplo_003_dte_emitido_timbre
+#EJEMPLO = Ejemplo_002_actualizar_estado
+#EJEMPLO = Ejemplo_003_dte_emitido_timbre
+#EJEMPLO = Ejemplo_004_dte_emitido_consultar
+#EJEMPLO = Ejemplo_005_dte_emitido_pdf
 
 all:
 	mkdir -p build
