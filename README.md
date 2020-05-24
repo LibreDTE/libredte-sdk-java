@@ -9,7 +9,7 @@ Términos y condiciones de uso
 -----------------------------
 
 Al utilizar este proyecto, total o parcialmente, automáticamente se acepta
-cumplir con los [términos y condiciones de uso](https://wiki.libredte.cl/doku.php/terminos)
+cumplir con los [términos y condiciones de uso](https://legal.libredte.cl)
 que rigen a LibreDTE. La [Licencia Pública General Affero de GNU (AGPL)](https://raw.githubusercontent.com/LibreDTE/libredte-lib/master/COPYING)
 sólo aplica para quienes respeten los términos y condiciones de uso. No existe
 una licencia comercial de LibreDTE, por lo cual no es posible usar el proyecto
@@ -28,7 +28,7 @@ permiten utilizar el proyecto, son los siguientes:
   cambios al código.
 
 Es obligación de quienes quieran usar el proyecto leer y aceptar por completo
-los [términos y condiciones de uso](https://wiki.libredte.cl/doku.php/terminos).
+los [términos y condiciones de uso](https://legal.libredte.cl).
 
 Si quieres una versión [LGPL](http://www.gnu.org/licenses/lgpl-3.0.en.html)
 de este código, anterior pero funcional, revisa en
